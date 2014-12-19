@@ -106,12 +106,17 @@
 	[signInButton setAttributedTitle:attributedString forState:UIControlStateNormal];
     [signInButton setEnabled:YES];
     [self.view addSubview:signInButton];
-	
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(playVideo)
-												 name:MPMoviePlayerReadyForDisplayDidChangeNotification
-											   object:player];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playVideo)
+                                                 name:MPMoviePlayerReadyForDisplayDidChangeNotification
+                                               object:player];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playVideo)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:player];
 	
 	[player play];
 }
